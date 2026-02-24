@@ -1,6 +1,7 @@
 package Models;
 
 
+import Exceptions.StudentAlreadyEnrolledException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,6 +52,14 @@ public abstract class Student extends Person {
 
     public Map<Course, Double> getCourses() {
         return courses;
+    }
+
+    public void enrollCourse(Course course) throws StudentAlreadyEnrolledException {
+        if (courses.containsKey(course)) {
+            throw new StudentAlreadyEnrolledException(
+                    "Student already enrolled in " + course.getTitle());
+        }
+        courses.put(course, 0.0);
     }
 
     public void addCourses(Course course, Double grade) {
