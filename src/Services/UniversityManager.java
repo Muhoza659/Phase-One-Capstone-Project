@@ -36,7 +36,7 @@ public class UniversityManager {
         try {
             enrollStudentInCourse(student.get(), course.get());
             System.out.println("Enrollment successful: " +
-                    student.get().getStudentID() + " → " + course.get().getCourseCode());
+                    student.get().getName() + " → " + course.get().getCourseCode());
         } catch (CourseFullException | StudentAlreadyEnrolledException e) {
             System.out.println("Enrollment error: " + e.getMessage());
         }
