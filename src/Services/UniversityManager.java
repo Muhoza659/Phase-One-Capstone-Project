@@ -36,7 +36,7 @@ public class UniversityManager {
         try {
             enrollStudentInCourse(student.get(), course.get());
             System.out.println("Enrollment successful: " +
-                    student.get().getStudentID() + " → " + course.get().getCourseCode());
+                    student.get().getName() + " → " + course.get().getCourseCode());
         } catch (CourseFullException | StudentAlreadyEnrolledException e) {
             System.out.println("Enrollment error: " + e.getMessage());
         }
@@ -66,5 +66,24 @@ public class UniversityManager {
                 .filter(c -> c.getCourseCode().equalsIgnoreCase(Code))
                 .findFirst();
 
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public List<Student> generateDeansList() {
+        List<Student> deansList = new ArrayList<>();
+
+        for (Student s : students) {
+            if (s.getGPA() > 3.5) {
+                deansList.add(s);
+            }
+        }
+        return deansList;
     }
 }

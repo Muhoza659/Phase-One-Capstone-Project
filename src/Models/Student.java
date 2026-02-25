@@ -62,7 +62,9 @@ public abstract class Student extends Person {
         courses.put(course, 0.0);
     }
 
+
     public void addCourses(Course course, Double grade) {
+
         courses.put(course,grade);
     }
 
@@ -73,7 +75,7 @@ public abstract class Student extends Person {
         return "StudentID: " + StudentID +
                 ", Name: " + getName() +
                 ", GPA: " + GPA +
-                ", Department: " + Department;
+                ", Department: " + Department ;
     }
 
 }
